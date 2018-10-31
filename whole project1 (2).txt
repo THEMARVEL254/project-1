@@ -1,0 +1,204 @@
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.Image;
+import javax.swing.Icon;
+
+abstract class Booking extends JFrame implements ActionListener{
+    private static final int FRAME_WIDTH =1500;
+    private static final int FRAME_HEIGHT = 950;
+    private static final int FRAME_X_ORIGIN = 150;
+    private static final int FRAME_Y_ORIGIN =250;
+    
+    private final JLabel response;
+    private JMenu  HomeMenu;
+    private JMenu  AboutusMenu;
+    private JMenu  SignupMenu;
+    private JMenu  LoginMenu;
+    private JMenu  BookingChooseMenu;
+    private JMenu  LogoutMenu;
+    
+    private JLabel prompt;
+    private JLabel image;
+    
+    //
+    //Main Method
+    //
+    
+    public static void main(String[] args) {
+        Booking frame =new Booking () {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
+        frame.setVisible (true); 
+    }
+    
+    public  Booking() {
+     Container contentPane;
+     
+     setTitle  ("Booking");
+     setSize   (FRAME_WIDTH, FRAME_HEIGHT);
+     setResizable (false);
+     setLocation (FRAME_X_ORIGIN,FRAME_Y_ORIGIN);
+     
+     contentPane =getContentPane();
+     contentPane.setLayout(new FlowLayout());
+     
+     createHomeMenu();
+     createAboutusMenu();
+     createSignupMenu();
+     createLoginMenu();
+     createBookingChooseMenu();
+     createLogoutMenu();
+     
+     JMenuBar menuBar =new JMenuBar();
+     setJMenuBar(menuBar);
+     menuBar.add(HomeMenu);
+     menuBar.add(AboutusMenu);
+     menuBar.add(SignupMenu);
+     menuBar.add(LoginMenu);
+     menuBar.add(BookingChooseMenu);
+     menuBar.add(LogoutMenu);
+     
+     response = new JLabel("WE GIVE THE BEST.");
+     response.setSize(250,50);
+     contentPane.add(response);
+     
+     
+     
+     setDefaultCloseOperation(EXIT_ON_CLOSE);
+     
+     
+    }
+    public void actionPerfomed(ActionEvent event){
+        String menuName;
+        menuName = event.getActionCommand();
+        
+        if(menuName.equals("Quit")){
+            System.exit(0);
+        }else {
+            response.setText("Menu Item ' " + menuName + "'is selected.");
+        }
+    }
+    private void initComponents() {
+        
+        JLabel jLabel1 = new javax.swing.JLabel();
+        JPanel jPanel1 = new javax.swing.JPanel();
+        JLabel jLabel4 = new javax.swing.JLabel();
+        JLabel jLabel2 = new javax.swing.JLabel();
+        JLabel jLabel3 = new javax.swing.JLabel();
+    
+    jLabel1.setText("jLabel1");
+   
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(null);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Achungo\\Desktop\\achungo\\EnashipaiExt.jpg")); // NOI18N
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(570, 0, 700, 300);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Achungo\\Desktop\\achungo\\safaripark.jpg")); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(570, 300, 700, 320);
+        
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Achungo\\Desktop\\achungo\\GoldetTulip21.jpg")); // NOI18N
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(0, 0, 570, 620);
+       
+}
+    private void createHomeMenu(){
+        JMenuItem item;
+        
+        HomeMenu = new JMenu("Home"); 
+        
+        item = new JMenuItem("New");
+        item.addActionListener(this);
+        HomeMenu.add(item);
+        
+        item=new JMenuItem("Quit");
+        item.addActionListener(this);
+        HomeMenu.add(item);
+     
+          
+    }
+    private void createLogoutMenu(){
+        JMenuItem item;
+        
+       LogoutMenu = new JMenu("Logout");
+        
+      
+        
+        item=new JMenuItem("Leave Session");
+        item.addActionListener(this);
+        LogoutMenu.add(item);
+    }
+
+    
+    private void createAboutusMenu(){
+        JMenuItem item;
+        
+        AboutusMenu = new JMenu("Aboutus");
+        
+        item = new JMenuItem("Location");
+        item.addActionListener(this);
+        AboutusMenu.add(item);
+        
+    }
+    
+    private void createSignupMenu(){
+        JMenuItem item;
+        
+        SignupMenu = new JMenu("Signup");
+        
+        item = new JMenuItem("ClickHere");
+        item.addActionListener(this);
+       SignupMenu.add(item);
+        
+    }
+    private void createLoginMenu(){
+        JMenuItem item;
+        
+        LoginMenu = new JMenu("Login");
+        
+        item = new JMenuItem("Add");
+        item.addActionListener(this);
+        AboutusMenu.add(item);
+        
+    }
+    private void createBookingChooseMenu(){
+        JMenuItem item;
+        
+       BookingChooseMenu = new JMenu("BookingChoose");
+        
+        item = new JMenuItem("Events");
+        item.addActionListener(this);
+        BookingChooseMenu.add(item);
+        
+        item = new JMenuItem("Age");
+        item.addActionListener(this);
+       BookingChooseMenu.add(item);
+       
+       item = new JMenuItem("Place");
+        item.addActionListener(this);
+        BookingChooseMenu.add(item);
+
+        
+      
+
+        
+    }
+    
+    
+    
+    
+}
+
+/*
+C%3A%5CUsers%5CAchungo%5CDesktop\achungo
+C%3A%5CUsers%5CAchungo%5CDesktop\achungo
+*/
